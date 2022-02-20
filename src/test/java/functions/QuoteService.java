@@ -6,7 +6,6 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONObject;
 import org.picocontainer.annotations.Inject;
-import utils.HttpClient;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
@@ -14,8 +13,9 @@ import static functions.AuthenticationService.authToken;
 import static functions.BaseClass.*;
 import static org.junit.Assert.assertEquals;
 import static utils.HelperFunction.EXPECTED_RESPONSE;
+import static utils.HttpClient.*;
 
-public class QuoteService extends HttpClient {
+public class QuoteService {
 
     @Inject
     utils.HelperFunction HelperFunction;

@@ -1,13 +1,13 @@
 package functions;
 
 import org.apache.http.client.methods.HttpPost;
-import utils.HttpClient;
 import java.io.IOException;
 import static functions.AuthenticationService.authToken;
 import static functions.BaseClass.BASE_ENDPOINT;
 import static org.junit.Assert.assertEquals;
+import static utils.HttpClient.*;
 
-public class CloseSession extends HttpClient {
+public class CloseSessionService {
 
     public void executePostCloseSession() throws IOException {
         HttpPost request = new HttpPost(BASE_ENDPOINT + "/authenticate/close_session");

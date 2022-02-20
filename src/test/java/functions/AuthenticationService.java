@@ -8,13 +8,13 @@ import org.apache.http.util.EntityUtils;
 import org.json.JSONObject;
 import org.junit.Assert;
 import org.picocontainer.annotations.Inject;
-import utils.HttpClient;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import static functions.BaseClass.*;
+import static utils.HttpClient.*;
 
-public class AuthenticationService extends HttpClient{
+public class AuthenticationService {
 
     @Inject
     utils.HelperFunction HelperFunction;
