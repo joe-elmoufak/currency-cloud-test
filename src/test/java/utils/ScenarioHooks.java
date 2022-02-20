@@ -5,7 +5,7 @@ import io.cucumber.java.Before;
 import org.picocontainer.annotations.Inject;
 import java.io.IOException;
 
-public class Hook {
+public class ScenarioHooks {
 
     @Inject
     utils.HttpClient HttpClient;

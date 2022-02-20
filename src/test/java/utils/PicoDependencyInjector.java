@@ -1,7 +1,6 @@
 package utils;
 
 import functions.AuthenticationService;
-import functions.CloseSessionService;
 import functions.QuoteService;
 import io.cucumber.core.backend.ObjectFactory;
 import io.cucumber.picocontainer.PicoFactory;
@@ -13,9 +12,7 @@ public class PicoDependencyInjector implements ObjectFactory {
     public PicoDependencyInjector() {
         addClass(AuthenticationService.class);
         addClass(HttpClient.class);
-        addClass(HelperFunction.class);
         addClass(QuoteService.class);
-        addClass(CloseSessionService.class);
     }
 
     @Override

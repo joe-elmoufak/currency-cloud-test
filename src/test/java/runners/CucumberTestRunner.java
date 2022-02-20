@@ -10,5 +10,5 @@ import io.cucumber.junit.CucumberOptions;
 monochrome = true,
         plugin = {"pretty", "html:target/Cucumber-Reports"}
 )
-public class RunJunitTest {
+public class CucumberTestRunner {
 }

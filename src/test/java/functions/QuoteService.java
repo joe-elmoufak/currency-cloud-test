@@ -5,25 +5,25 @@ import org.apache.http.client.utils.URLEncodedUtils;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONObject;
-import org.picocontainer.annotations.Inject;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import static functions.AuthenticationService.BASE_ENDPOINT;
 import static functions.AuthenticationService.authToken;
-import static functions.BaseClass.*;
 import static org.junit.Assert.assertEquals;
-import static utils.HelperFunction.EXPECTED_RESPONSE;
 import static utils.HttpClient.*;
 
 public class QuoteService {
 
-    @Inject
-    utils.HelperFunction HelperFunction;
-
-    static JSONObject rateJson;
     private static String sellCurrency;
     private static String buyCurrency;
     private static String originalConversionAmount;
+    private static final Map<String, Integer> EXPECTED_RESPONSE = Map.of(
+            "success", 200,
+            "bad_request", 400,
+            "unauthorised", 401
+    );
 
 //    Api request field names
     String CURRENCY_PAIR = "currency_pair";
@@ -33,16 +33,15 @@ public class QuoteService {
 
     public void verifyRateConversion() throws IOException {
         String jsonBody = EntityUtils.toString(response.getEntity());
-        System.out.println(jsonBody);
-        rateJson = new JSONObject(jsonBody);
+        JSONObject jsonObject = new JSONObject(jsonBody);
 
-        double buyAmount = Double.parseDouble((String) HelperFunction.getValuefor(rateJson, BUY_AMOUNT));
-        double clientRate = Double.parseDouble((String) HelperFunction.getValuefor(rateJson, CLIENT_RATE));
-        double coreRate = Double.parseDouble((String) HelperFunction.getValuefor(rateJson, CORE_RATE));
+        double buyAmount = Double.parseDouble((String) jsonObject.get(BUY_AMOUNT));
+        double clientRate = Double.parseDouble((String) jsonObject.get(CLIENT_RATE));
+        double coreRate = Double.parseDouble((String) jsonObject.get(CORE_RATE));
 
         assertEquals((clientRate * Double.parseDouble(originalConversionAmount)), buyAmount, 0.006);
         assertEquals((coreRate * Double.parseDouble(originalConversionAmount)), buyAmount, 0.006);
-        assertEquals(HelperFunction.getValuefor(rateJson, CURRENCY_PAIR), sellCurrency+buyCurrency);
+        assertEquals(jsonObject.get(CURRENCY_PAIR), sellCurrency+buyCurrency);
     }
 
     public void executeGetRates(String transactionType, String amount, String toSell, String toBuy, Boolean authenticate) throws IOException {
