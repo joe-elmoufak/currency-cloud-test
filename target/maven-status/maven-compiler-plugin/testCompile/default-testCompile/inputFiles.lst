@@ -1,0 +1,12 @@
+/Users/joeelmoufak/Desktop/Currency Cloud/src/test/java/stepdefinitions/LogoutStepDef.java
+/Users/joeelmoufak/Desktop/Currency Cloud/src/test/java/functions/CloseSession.java
+/Users/joeelmoufak/Desktop/Currency Cloud/src/test/java/utils/HelperFunction.java
+/Users/joeelmoufak/Desktop/Currency Cloud/src/test/java/runners/RunJunitTest.java
+/Users/joeelmoufak/Desktop/Currency Cloud/src/test/java/stepdefinitions/LoginStepDef.java
+/Users/joeelmoufak/Desktop/Currency Cloud/src/test/java/stepdefinitions/QuoteStepDef.java
+/Users/joeelmoufak/Desktop/Currency Cloud/src/test/java/functions/BaseClass.java
+/Users/joeelmoufak/Desktop/Currency Cloud/src/test/java/utils/Hook.java
+/Users/joeelmoufak/Desktop/Currency Cloud/src/test/java/utils/PicoDependencyInjector.java
+/Users/joeelmoufak/Desktop/Currency Cloud/src/test/java/utils/HttpClient.java
+/Users/joeelmoufak/Desktop/Currency Cloud/src/test/java/functions/QuoteService.java
+/Users/joeelmoufak/Desktop/Currency Cloud/src/test/java/functions/AuthenticationService.java
